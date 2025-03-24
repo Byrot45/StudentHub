@@ -1,0 +1,473 @@
+/*
+# para ID
+. para clases
+*/
+:root
+{
+    --color-base: #ffffff;
+    --color-secundario: #36a83c;
+    --color-terciario: #08131F ;
+    --color-texto: #ffffff;
+
+    --color-boton-envio: #70f156 ;
+    --color-cambio-envio: #0a3017 ;
+
+    --color-contextual: white;
+    --color-contextual-invertido: #08131F;
+    --porcentaje-brillo-logo: 50%;
+    --porcentaje-brillo-fondo: 100%;
+    --url-imagen-fondo: url("https://res.cloudinary.com/dotnb5exs/image/upload/v1742506806/Laboratorios_de_c%C3%B3mputo_Alfa_y_Beta__noche__CUCEI_lzij7u.jpg");
+    
+}
+/*Cuerpo de la pagina
+
+Aqui se toma una url de una imagen
+para ponerla de fondo de pantalla 
+se establece la fuente*/
+body
+{
+    /*background-image: url("https://res.cloudinary.com/dotnb5exs/image/upload/v1740974173/BackgroundImage_diqrty.jpg");*/
+    background-color: var(--color-contextual);
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*a: a los enlaces se les quita el estilo  por defecto
+de cuando son visitados*/
+a
+{
+    text-decoration: none;
+    color: #36a83c;
+}
+
+a:visited
+{
+    text-decoration: none;
+}
+/*li: se le quita el estilo por defecto
+se hace separacion entre elementos y contiene la 
+animacion al pasarle el mouse*/
+li
+{
+    list-style-type: none ;
+    display: inline;
+    font-weight: 300;
+    margin-right: 10px;
+    transition: color 0.2 ease;
+}
+
+/* ========================= */
+/*          HEADER           */
+/* ========================= */
+
+
+/* div principal de la cabecera, de ccolor beige
+abarca todo el largo de la pagina  y tiene display
+flex para poder acomodar los elementos dentro*/
+.Cabecera
+{
+margin-top: 0;
+display: flex;
+align-items: center;
+align-self: auto;
+justify-self: auto;
+height: 70px;
+width: 100%;
+background-color: var(--color-contextual);
+
+position: fixed;  /* Fija la cabecera en su lugar */
+top: 0;           /* Se mantiene pegada arriba */
+left: 0;          /* Se extiende desde el borde izquierdo */
+width: 100%;      /* Ocupa todo el ancho */
+height: 70px;     /* Mantiene su altura */
+
+z-index: 1;    /* Asegura que esté por encima de otros elementos */
+
+box-shadow: 0px 10px 14px 5px rgba(109, 117, 138, 0.2);
+-moz-box-shadow: 0px 10px 14px 5px rgba(66, 71, 85, 0.2);
+box-shadow: 0px 10px 14px 5px rgba(85, 89, 102, 0.2);
+}
+
+/*El logo es acomodado a la izquierda de la cabecera,
+tiene un filtro para cambiar su color para ser mas
+acorde a la paleta de colores*/
+#Logo
+{
+    width: 50px;
+    height: 50px;
+   margin: 4px;
+   margin-left: 10px;
+   filter: brightness(var(--porcentaje-brillo));
+}
+/*El nombre de la pagina solo tiene propiedad de
+cambiar de color al pasarle el mouse*/
+.NombrePagina
+{
+ 
+ vertical-align: middle;
+ text-align: left;
+ color: var(--color-terciario); 
+ transition: color 0.2s ease;  
+}
+#NombrePagina:hover, #Logo
+{
+    color: #ffffff;
+    
+}
+/*Este div es aquel que engloba el submenu de enlaces
+y a los botones de inicio y registro*/
+#MenuCabecera
+{
+    margin-left: auto;
+    display: flex; 
+    width: 620px;
+    height: 100%;
+}
+/*Lista de texto donde tienen la propiedad de
+aclararse al pasarle el mouse encima*/
+.ListaCabecera
+{
+ transition: color 0.2s ease
+}
+
+.ListaCabecera:hover
+{
+    color: #C7BDB7;
+}
+
+
+/*Aqui ambos botones son redondeados y cambian de color al
+pasarle el mouse*/
+#BotonCabeceraInicio
+{
+    margin-right: auto;
+    border: transparent;
+    border-width: 2px;
+    background-color: var(--color-secundario);
+    color: var(--color-base);
+    height: 30px;
+    width: 100px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#BotonCabeceraInicio:hover
+{
+    background-color: black;
+    color: white
+}
+#BotonCabeceraRegistro
+{
+    margin-right: auto;
+    border-color: var(--color-secundario);
+    border-width: 2px;
+    border-style: solid;
+    background-color: var(--color-base);
+    color: var(--color-terciario);
+    height: 30px;
+    width: 100px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: "Roboto", sans-serif;
+}
+#BotonCabeceraRegistro:hover
+{
+    background-color: var(--color-secundario);
+    border-color: var(--color-contextual);
+    color: var(--color-base);
+}
+
+/*Aqui el contenedor engloba todo lo que es el contenido de la pagina */
+.ContenedorContenido
+{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+/* Este es el contenedor base que se utiliza como plantilla para todos
+los contenedores de contenido del sitio web
+*/
+
+.ContenedorBase
+{
+background-color: var(--color-base);
+text-align: center;
+border-radius: 5%;
+left: 50%;
+
+height: 300px;
+width: 300px;
+
+box-shadow: 10px 10px 5px rgba(8, 19, 31, 0.7); 
+
+
+}
+
+
+/* ========================= */
+/*     INICIO o HOME         */
+/* ========================= */
+
+/*El contenedor toma la plantilla de la base y se modifica aqui
+el contenedor muestra una imagen que cambia con el tema*/
+.ContenedorBase.ContenedorMayorHome
+{
+    background-color: var(--color-contextual);
+    background-image: var(--url-imagen-fondo);
+    background-size:cover;
+    background-position: 50% 60%;
+    background-attachment:unset;
+
+    box-shadow: none;
+    width: 90%;
+    height: 400px; 
+    border-radius: 0%;
+    border-radius: 50px;
+   
+    border-color: transparent; 
+
+
+    content-visibility: visible;
+}
+/*Contenedor dentro del MayorHome*/
+#ContenedorTitulo
+{
+    position: relative;
+    text-align: left;
+    width: 500px;
+    height: 500px;
+    top: 0;
+    left: 10px;
+    overflow: hidden;
+}
+/*Texto con animacion de entrada al recargar la pagina*/
+#Subtitulo
+{
+    font-optical-sizing: auto;
+    font-family: "Domine", sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    color: white;
+    
+    transform: translateY(100%);
+    animation: subir 1s ease-out forwards;
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+/*enlace que te dirije a la documentacion de css
+con cambio de color al pasar mouse y animacion
+al momento de recargar la pagina*/
+#BotonDocumentacion
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    width: 200px;
+
+   background-color: var(--color-secundario);
+   padding: 10px;
+   margin-left: 75px;
+   text-align: center;
+   color: var(--color-base);
+
+   transform: translateY(100%);
+   animation: subir 1s ease-out forwards;
+
+   transition: background-color 0.2s ease;
+}
+
+#BotonDocumentacion:hover
+{
+    background-color: black;
+    color: white;
+}
+
+.ContenedorSecundario
+{
+    width: 100%;
+    height: 300px;
+    border: 2px solid black;
+    background-color: var(--color-base);
+
+    margin: 0;
+    
+}
+
+
+
+/* ========================= */
+/*        REGISTRO           */
+/* ========================= */
+.CabeceraRegistro
+{
+    box-shadow: none;
+}
+
+.ContenidoRegistro
+{
+    background-image: var(--url-imagen-fondo);
+    background-size:cover;
+    background-attachment: fixed ;
+}
+.ContenedorBase
+{
+background-color: var(--color-base);
+text-align: center;
+border-radius: 5%;
+left: 50%;
+
+height: 300px;
+width: 300px;
+
+box-shadow: 10px 10px 5px rgba(8, 19, 31, 0.7); 
+
+}
+
+/* uso un color de titulo para contrastar con la caja */
+h1{
+    color: var(--color-terciario); 
+  }
+
+
+/* Este es el contenedor interno para darle
+   un formato a las labels, centrando la caja
+   y ajustando las labels a la izquierda */
+#ContenedorInternoFormulario
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+/* Estilos de formulario */
+
+/* los inputs tienen un borde de abajo
+ que al momento de escribir el borde de abajo
+ cambia de color a blanco  */
+ 
+input{
+    border: 2px solid transparent;
+    border-bottom: 2px solid var(--color-terciario);
+    
+    background-color: transparent;
+}
+label
+{
+    color: var(--color-secundario);
+}
+/*    */
+input:focus
+{
+    border: 2px solid white ;
+    outline: none;
+    
+}
+
+/* el boton redondedo cambia el cursor a un apuntador */
+#BotonRegistrar
+{
+    background-color: var(--color-boton-envio) ;
+    color: white;
+
+
+    width: 200px;
+    height: 40px;
+
+    border: 2px solid transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: "Roboto", sans-serif;
+}
+/* al pasarle el mouse toma un color oscuro */
+#BotonRegistrar:hover
+{
+    background-color: var(--color-contextual);
+    border: 2px solid var(--color-contextual-invertido);
+    color: var(--color-contextual-invertido);
+}
+
+/* al hacerle clic cambia sus bordes a blanco para señalar que se presionó */
+button:active
+{
+    border: 2px solid white;
+    background-color: var(--color-terciario);
+    color: gray;
+}
+
+/* ========================= */
+/*        Callendario           */
+/* ========================= */
+
+#BodyPomodoro {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.timer {
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.controls button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#start {
+    background-color: #28a745;
+    color: white;
+}
+
+#reset {
+    background-color: #dc3545;
+    color: white;
+}
+
+#status {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+
+/* ========================= */
+/*          FOOTER           */
+/* ========================= */
