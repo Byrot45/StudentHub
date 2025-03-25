@@ -318,106 +318,147 @@ al momento de recargar la pagina*/
 /* ========================= */
 /*        REGISTRO           */
 /* ========================= */
-.CabeceraRegistro
-{
-    box-shadow: none;
-}
 
-.ContenidoRegistro
-{
-    background-image: var(--url-imagen-fondo);
-    background-size:cover;
-    background-attachment: fixed ;
-}
-.ContenedorBase
-{
-background-color: var(--color-base);
-text-align: center;
-border-radius: 5%;
-left: 50%;
-
-height: 300px;
-width: 300px;
-
-box-shadow: 10px 10px 5px rgba(8, 19, 31, 0.7); 
-
-}
-
-/* uso un color de titulo para contrastar con la caja */
-h1{
-    color: var(--color-terciario); 
-  }
-
-
-/* Este es el contenedor interno para darle
-   un formato a las labels, centrando la caja
-   y ajustando las labels a la izquierda */
-#ContenedorInternoFormulario
-{
+registration-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: left;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-/* Estilos de formulario */
-
-/* los inputs tienen un borde de abajo
- que al momento de escribir el borde de abajo
- cambia de color a blanco  */
- 
-input{
-    border: 2px solid transparent;
-    border-bottom: 2px solid var(--color-terciario);
-    
-    background-color: transparent;
-}
-label
-{
-    color: var(--color-secundario);
-}
-/*    */
-input:focus
-{
-    border: 2px solid white ;
-    outline: none;
-    
+/* Tarjeta de registro */
+.registration-card {
+    background: white;
+    width: 100%;
+    max-width: 480px;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
-/* el boton redondedo cambia el cursor a un apuntador */
-#BotonRegistrar
-{
-    background-color: var(--color-boton-envio) ;
-    color: white;
+.registration-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-boton-envio);
+    font-size: 1.8rem;
+    z-index: 10;
+}
 
+/* Formulario */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
 
-    width: 200px;
-    height: 40px;
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
 
-    border: 2px solid transparent;
+.form-label {
+    font-weight: 600;
+    color: var(--color-terciario);
+}
+
+.form-input {
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
     border-radius: 20px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+.form-hint {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/*verificacion*/
+
+#ContenedorVerificacion
+{
+margin-top: 100px;
+}
+
+
+/* Botón de envío */
+.submit-button {
+    background-color: var(--color-boton-envio);
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    font-family: "Roboto", sans-serif;
-}
-/* al pasarle el mouse toma un color oscuro */
-#BotonRegistrar:hover
-{
-    background-color: var(--color-contextual);
-    border: 2px solid var(--color-contextual-invertido);
-    color: var(--color-contextual-invertido);
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
 }
 
-/* al hacerle clic cambia sus bordes a blanco para señalar que se presionó */
-button:active
-{
-    border: 2px solid white;
-    background-color: var(--color-terciario);
-    color: gray;
+.submit-button:hover {
+    background-color: var(--color-cambio-envio);
 }
 
+/* Mensajes */
+.message-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius:20px;
+    display: none;
+    text-align: center;
+    font-weight: 500;
+}
+
+.message-box.success {
+    background-color: rgba(75, 181, 67, 0.2);
+    color: white;
+    display: block;
+}
+
+.message-box.error {
+    background-color: rgba(255, 51, 51, 0.2);
+    color: white;
+    display: block;
+}
+
+/* Enlace de login */
+.login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #6c757d;
+}
+
+.login-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .registration-card {
+        padding: 1.5rem;
+    }
+    
+    .registration-title {
+        font-size: 1.5rem;
+    }
+}
 /* ========================= */
-/*        Callendario           */
+/*        Calendario           */
 /* ========================= */
 
 #BodyPomodoro {
