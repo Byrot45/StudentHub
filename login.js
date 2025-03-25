@@ -62,7 +62,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         alert(`Bienvenido ${data.Rol} ${data.Nombre}`);
 
         // Aquí podrías redirigir a la página principal o hacer cualquier otra acción
-        window.location.href = 'home.html'; // Cambia esta URL según tu aplicación
+        window.location.href = 'index.php'; // Cambia esta URL según tu aplicación
 
     } catch (error) {
         console.error('Error al iniciar sesión:', error);

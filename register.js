@@ -1,4 +1,5 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+import bcrypt from 'https://cdn.jsdelivr.net/npm/bcryptjs/+esm';
 
 // Configuración de Supabase
 const supabaseUrl = 'https://ybxyvrsidrvjdgrhziqb.supabase.co';
@@ -27,6 +28,9 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     }
 
     try {
+        // Generar hash de la contraseña con bcrypt
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         // Registrar usuario en la autenticación de Supabase
         const { data: authData, error: authError } = await supabase.auth.signUp({
             email: correo,
@@ -46,7 +50,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
             {
                 Nombre: nombre,
                 Correo: correo,
-                Password: password // Aquí almacenamos la contraseña tal como la recibimos
+                Password: hashedPassword // Se almacena la contraseña encriptada
             }
         ]);
 
@@ -58,7 +62,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
 
         console.log('Usuario insertado en la base de datos:', data);
 
-        alert('Registro exitoso');
+        alert('Registro exitoso. Revisa tu correo para verificar tu cuenta.');
         window.location.href = 'verificar.php';
     } catch (error) {
         console.error('Error en el registro:', error);
