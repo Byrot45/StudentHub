@@ -12,13 +12,11 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const correo = document.getElementById('correo').value.trim();
     const password = document.getElementById('password').value;
 
-    // Validar que los campos estén completos
     if (!correo || !password) {
         alert('Todos los campos son obligatorios');
         return;
     }
 
-    // Validar formato de correo electrónico
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(correo)) {
         alert('Por favor, ingresa un correo electrónico válido');
@@ -26,7 +24,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     }
 
     try {
-        // Intentar autenticar al usuario
+        // Autenticar al usuario
         const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
             email: correo,
             password: password
@@ -40,30 +38,29 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
         console.log('Usuario autenticado:', authData);
 
-        // Obtener los datos del usuario desde la tabla 'Usuarios'
+        // Obtener el ID del usuario desde la base de datos
         const { data, error } = await supabase
             .from('Tabla Usuarios')
             .select('*')
             .eq('Correo', correo)
             .single(); // Asegurarse de que solo se obtenga una fila
 
-        if (error) {
+        if (error || !data) {
             console.error('Error al obtener los datos del usuario:', error);
-            alert('Error al obtener los datos del usuario: ' + error.message);
+            alert('Usuario no encontrado o error al obtener datos.');
             return;
         }
 
-        if (!data) {
-            alert('Usuario no encontrado');
-            return;
-        }
+        // Guardar el ID del usuario en sessionStorage
+        sessionStorage.setItem('ID_usuario', data.ID_usuario);
+        sessionStorage.setItem('Nombre_usuario', data.Nombre);
+        sessionStorage.setItem('Rol_usuario', data.Rol);
 
-        // Si todo es correcto, mostrar el mensaje de bienvenida
+        // Mostrar el mensaje de bienvenida
         alert(`Bienvenido ${data.Rol} ${data.Nombre}`);
 
-        // Aquí podrías redirigir a la página principal o hacer cualquier otra acción
-        window.location.href = 'index.php'; // Cambia esta URL según tu aplicación
-
+        // Redirigir a la página principal
+        window.location.href = 'index.php';
     } catch (error) {
         console.error('Error al iniciar sesión:', error);
         alert('Error al iniciar sesión: ' + error.message);

@@ -27,7 +27,7 @@
                 <div id="ContenedorTitulo">
                     <p id="Subtitulo">Agenda de estudiantes,<br>para estudiantes</p>
 
-                <a href="calendario.php"
+                <a href="recordatorios.php"
                 id = "BotonDocumentacion">
 
                         Crear un recordatorio
@@ -40,6 +40,18 @@
         </div>
                
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const ID_usuario = sessionStorage.getItem('ID_usuario');
+
+        if (ID_usuario) {
+            document.getElementById('BotonCabeceraInicio').style.display = 'none';
+            document.getElementById('BotonCabeceraRegistro').style.display = 'none';
+        }
+    });
+</script>
+
 
 </body>
 
